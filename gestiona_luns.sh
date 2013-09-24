@@ -10,7 +10,7 @@
 
 function usage() {
   cat << __EOF__
-Uso: $1 <file of names>
+Uso: $1 <file with names>
 __EOF__
 }
 
