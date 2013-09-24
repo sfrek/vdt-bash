@@ -39,7 +39,7 @@ GRANT ALL ON ${DB}.* TO '${USER}'@'%' IDENTIFIED BY '${PASSWORD}';
 __QUERY__
 }
 
-ROOTPASS=${grep -A2 mysql ~/.temporal_pass | grep password | awk '{print $NF}'}
+ROOTPASS=$(grep -A2 mysql ~/.temporal_pass | grep password | awk '{print $NF}')
 QUERY=$(date +%s).${0##*/}.sql
 for DB in keystone glance quantum cinder nova
 do
