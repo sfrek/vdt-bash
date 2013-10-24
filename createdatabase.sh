@@ -32,7 +32,7 @@ do
   PASSWORD=${DB}$(openssl rand -hex 8)
   echo -e "- ${DB}:\n\t- ${USER}: ${PASSWORD}" >> ~/.temporal_pass
   create_query ${DB} ${USER} ${PASSWORD} > ${QUERY}
-  # echo "mysql -u root -p${ROOTPASS} < ${QUERY}"
+  mysql -u root -p${ROOTPASS} < ${QUERY}
 done
 
 rm ${QUERY}
