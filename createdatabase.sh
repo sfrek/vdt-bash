@@ -26,13 +26,13 @@ __QUERY__
 
 ROOTPASS=$(grep -A2 mysql ~/.temporal_pass | grep password | awk '{print $NF}')
 QUERY=$(date +%s).${0##*/}.sql
-for DB in keystone glance neutron cinder nova
+for DB in keystone glance neutron cinder nova heat
 do
   USER=${DB}dbuser
   PASSWORD=${DB}$(openssl rand -hex 8)
   echo -e "- ${DB}:\n\t- ${USER}: ${PASSWORD}" >> ~/.temporal_pass
   create_query ${DB} ${USER} ${PASSWORD} > ${QUERY}
-  echo "mysql -u root -p${ROOTPASS} < ${QUERY}"
+  # echo "mysql -u root -p${ROOTPASS} < ${QUERY}"
 done
 
 rm ${QUERY}
