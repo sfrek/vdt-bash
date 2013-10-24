@@ -9,7 +9,7 @@ function create_query(){
   local USER=${2}
   local PASSWORD=${3}
   cat << __QUERY__ 
-CREATE DATABASE ${DB}; 
+CREATE DATABASE ${DB} CHARACTER SET utf8; 
 GRANT ALL ON ${DB}.* TO '${USER}'@'%' IDENTIFIED BY '${PASSWORD}';
 __QUERY__
 }
