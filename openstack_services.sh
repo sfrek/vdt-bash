@@ -12,7 +12,7 @@ function action_over_service(){
 }
 
 [ $# -lt 2 ] && echo "Params Error" && exit 1
-[ "$2" == "ALL" ] && SERVICES="quantum cinder glance keystone nova" || SERVICES=$2
+[ "$2" == "ALL" ] && SERVICES="neutron cinder glance keystone nova heat" || SERVICES=$2
 
 for SERVICE in ${SERVICES};do
 	echo -e "\033[01;35m${1}ing ${SERVICE}\033[00m"
