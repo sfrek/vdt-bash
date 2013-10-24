@@ -26,7 +26,7 @@ __QUERY__
 
 ROOTPASS=$(grep -A2 mysql ~/.temporal_pass | grep password | awk '{print $NF}')
 QUERY=$(date +%s).${0##*/}.sql
-for DB in keystone glance quantum cinder nova
+for DB in keystone glance neutron cinder nova
 do
   USER=${DB}dbuser
   PASSWORD=${DB}$(openssl rand -hex 8)
